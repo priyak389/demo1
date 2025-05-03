@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petshop</title>
+</head>
+<body>
+    <h1>Hello Learners Welcome to Django World !!!</h1>
+    <h1>Hello {{name}} {{Msg}}</h1>
+    
+    {% comment %}
+       
+    {% endcomment %}
+
+   Values are: {{x}} and {{y}}
+   {% if x < y %}
+   <h1> {{x}} is greater</h1>
+   {% elif x == 0 %}
+      <h1>x is 0</h1>
+   {% else %}
+   <h1> {{y}} is greater</h1>
+   {% endif %}
+
+   {{list1}}
+
+   {% for i in list1 %}
+      <h1>  current value:  {{i}}</h1>
+   
+   {% endfor %}
+
+  <h1>Product id is:{{prodId}}</h1>
+  <h1>Product name is:{{ProdName}}</h1>
+  <h1>Price:{{Price}} </h1>  
+   Current date:{{datedetails}}
+</body>
+</html>

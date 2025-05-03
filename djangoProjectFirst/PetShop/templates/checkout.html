@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+
+<div class="container-fluid">
+    <div class="row">
+      {% for prod in products %}
+      <div class="col-md-4">
+        <img src="{{prod.pid.prodImage.url}}" class="card-img-top" alt="{{prod.prodName}}" height="250px" width="250px">     
+      </div>
+      <div class="col-md-6">
+        <h5 class="card-title">{{prod.pid.prodName}}</h5>
+        <h5 class="card-title">Rs.{{prod.pid.prodPrice}}/-</h5>
+        <p class="card-text">{{prod.pid.prodDesc}}</p>
+        <h5 class="card-title">Rating: {{prod.pid.prodRating}}</h5>
+         
+             
+    </div>
+      {% endfor %}
+      <h4>Customer Details</h4>
+
+         {% for i in customer %}
+         <h5 class="card-title">{{i.custname}}</h5>
+         <h5 class="card-title">{{i.custemail}}</h5>
+         <p class="card-text">  {{i.custaddress}}</p>
+         <h5 class="card-title">{{i.custcontact}}</h5>
+         <h5 class="card-title">{{i.pincode}}</h5>
+          
+         {% endfor %}
+
+     
+
+      <div class="col-md-2">
+        Total Amount:{{total}} 
+        <a href="#" class="btn btn-primary">Proceed to pay</a>
+      </div>
+
+    <!--================================= Payment Start Here==============================================-->
+    <div class="row">
+
+      {{paypal_payment.render}}
+
+    </div>
+  
+  
+  
+    </div>
+  
+   
+   
+   
+  </div>
+   
+
+
+{% endblock 'main' %}

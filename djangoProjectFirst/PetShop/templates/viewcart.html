@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+
+<div class="container-fluid">
+  <div class="row">
+    {% for prod in products %}
+    <div class="col-md-4">
+      <img src="{{prod.pid.prodImage.url}}" class="card-img-top" alt="{{prod.prodName}}" height="250px" width="250px">
+             
+    </div>
+    <div class="col-md-6">
+      <h5 class="card-title">{{prod.pid.prodName}}</h5>
+      <h5 class="card-title">Rs.{{prod.pid.prodPrice}}/-</h5>
+      <p class="card-text">{{prod.pid.prodDesc}}</p>
+      <h5 class="card-title">Rating: {{prod.pid.prodRating}}</h5>
+      
+      <a href="/updateqty/0/{{prod.id}}" class="btn btn-danger">-</a>
+      <input type="number" value="{{prod.qty}}" readonly>
+ 
+      <a href="/updateqty/1/{{prod.id}}" class="btn btn-danger">+</a>
+      <p class="mt-4"></p>   
+    <a href="/remove/{{prod.id}}" class="btn btn-danger">Remove Product</a>
+   
+  </div>
+   
+  
+    {% endfor %}
+</div>
+</div>
+    <div class="col-md-2">
+      Total Amount:{{total}}
+      
+      <a href="{% url 'customerdetails' %}" class="btn btn-primary">Proceed to Pay</a>
+
+
+    </div>
+  
+
+
+
+  </div>
+
+ 
+ 
+ 
+</div>
+ 
+
+
+{% endblock 'main' %}

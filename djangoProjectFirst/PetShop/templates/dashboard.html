@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <style>
+        table,tr,td{
+            border:2px solid black;
+        }
+        
+    </style>
+</head>
+<body>
+    <!-- {{custdetails}} -->
+    <table>
+        <caption>Customer Details</caption>
+        <thead>
+            <tr><th>Customer Id</th>
+            <th>Customer name</th>
+            <th>Customer email</th>
+            <th>Customer contact</th></tr>
+        </thead>
+        <tbody>
+            
+            {% for i in custdetails %}
+             <tr><td>{{i.custId}}</td>  <!--#custId coming from db model -->
+                <td>{{i.custName}}</td>
+                <td>{{i.custEmail}}</td>
+                <td>{{i.custContact}}</td>
+                <td><a href="/edit/{{i.id}}">Edit</a></td>
+                <td><a href="/delete/{{i.id}}/">Delete</a></td> 
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

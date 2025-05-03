@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+
+<div class="container">
+    <div class="row">
+
+    <!-- OTP Send Form -->
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Send OTP</button>
+    </form>
+
+    <!-- Display Success/Error Messages -->
+    {% if messages %}
+        {% for message in messages %}
+            <p style="color: red;">{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+ 
+  </div>
+   
+
+{% endblock 'main' %}

@@ -1,0 +1,44 @@
+QuerySet Filter
+The filter() method is used to filter your search, and allows you to return only the rows that matches the search term.
+
+mydata = PetProduct.objects.filter(prodName='Ro').values()
+
+ 
+
+
+Q Objects in Django
+The Django Q object (django.db.models.Q) is a container for keyword arguments. 
+It is primarily used for complex queries that require logical operations. The keyword arguments are encapsulated by the 
+Q object and passed to query methods such as filter, exclude, and get. Multiple Q objects can be combined using the
+ AND, OR, or NOT operators. 
+
+
+env) C:\PFSD402\Django\djangoProjectFirst\PetShop>python manage.py shell
+
+ 
+>>> from myapp.models import PetProduct
+>>> from django.db.models import Q 
+
+#show all Product
+
+>>> p=PetProduct.objects.all()
+>>> p
+
+>>> d1=PetProduct.objects.filter(Q(prodName__contains='R'))
+>>> d
+
+>>> d2=PetProduct.objects.filter(Q(prodPrice__gt=500));       
+>>> d
+
+>>> d=PetProduct.objects.filter(d1 & d2)
+
+>>> d=PetProduct.objects.filter(Q(prodName__contains='R') & Q(prodPrice__gt=500))
+>>> d
+
+
+
+
+
+
+
+

@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+
+<div class="container">
+    <div class="row">
+        <p><strong>OTP Purpose:</strong> {{ otp_purpose|capfirst }}</p>
+        <form method="POST">
+            {% csrf_token %}
+            <label>Enter OTP:</label>
+            <input type="text" name="otp" required>
+            <button type="submit">Verify OTP</button>
+        </form>
+        
+        {% if messages %}
+            {% for message in messages %}
+                <p>{{ message }}</p>
+            {% endfor %}
+        {% endif %}
+ 
+  </div>
+   
+
+{% endblock 'main' %}

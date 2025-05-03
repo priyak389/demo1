@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+<h2>Payment successful</h2>
+
+ 
+ 
+<div class="col-md-10">
+    <div class="row">
+      {% for prod in orders %}
+      <div class="col-md-4 d-flex justify-content-center mb-4 mt-2">
+        <div class="card" style="width: 18rem;">
+          <img src="{{prod.pet.prodImage.url}}" class="card-img-top" alt="{{prod.prodName}}" height="250px" width="250px">
+          <div class="card-body">
+            <h5 class="card-title">{{prod.pet.prodName}}</h5>
+            <h5 class="card-title">Rs.{{prod.quantity}}/-</h5>
+            <p class="card-text">{{prod.order_date}}</p>
+            <h5 class="card-title">Rating: {{prod.total_price}}</h5>
+            
+           
+          </div>
+          <div class="card-footer">
+            <div class="row">
+              <a href="#" class="btn btn-primary">{{prod.status}}</a>
+         
+            </div>
+            
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+{% endblock 'main' %}

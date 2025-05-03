@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'main' %}
+<div class="container">
+    <div class="container bg-primary p-2 text-white text-center shadow">Login Form</div>
+</div>
+
+<div class="container my-3 shadow w-50">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ userform.as_p }}
+        <input type="submit" class="bg-primary text-white">
+    </form>
+    
+    <p><a href="{% url 'forgot_password' %}">Forgot Password?</a></p>
+
+{% endblock 'main' %}

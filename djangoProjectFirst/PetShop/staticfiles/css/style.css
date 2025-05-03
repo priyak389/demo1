@@ -1,0 +1,8 @@
+.nav-link:hover{
+    color:darkgreen;
+    text-decoration: underline;
+}
+.card-img{
+    height:400px;
+    width:280px;
+}
